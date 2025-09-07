@@ -1,0 +1,63 @@
+/* 1) Small, readable base styles you can extend */
+:root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #666666;
+    --maxw: 72rem;   /* ~1152px */
+    --pad: 1rem;     /* base spacing unit */
+  }
+  
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  
+  /* 2) Utilities */
+  .container {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: calc(var(--pad) * 1.25);
+  }
+  
+  .stack > * + * { margin-top: calc(var(--pad) * 0.75); }
+  
+  /* 3) Accessibility: visible skip link when tabbed */
+  .skip {
+    position: absolute; left: -9999px; top: auto;
+  }
+  .skip:focus {
+    left: 0; top: 0; background: #ffd; color: #000;
+    padding: 0.5rem 0.75rem; border-bottom-right-radius: 0.5rem;
+  }
+  
+  /* 4) Header & nav */
+  .site-header { border-bottom: 1px solid #eee; }
+  .site-header .container {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-block: calc(var(--pad) * 1);
+  }
+  .brand { font-weight: 700; }
+  
+  .nav { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+  .nav a { text-decoration: none; color: var(--fg); }
+  .nav a:hover, .nav a:focus { text-decoration: underline; }
+  
+  /* 5) Hero */
+  .hero {
+    padding-block: calc(var(--pad) * 4);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 0.5rem 0;
+  }
+  .lead { color: var(--muted); font-size: 1.125rem; }
+  
+  /* 6) Footer */
+  .site-footer { border-top: 1px solid #eee; }
+  .site-footer .container { padding-block: calc(var(--pad) * 1); }
+  
